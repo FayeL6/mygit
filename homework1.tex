@@ -1,0 +1,84 @@
+\documentclass{ctexart}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\title{作业一: 罗必达法则的叙述与证明}
+
+
+\author{李方圆 \\ 统计学 3190104914}
+
+\begin{document}
+
+\maketitle
+
+
+这是一个数学分析领域的问题。罗必达法则是在一定条件下对分子和分母分别求导再求其极限来求一定未知值的方法。
+\section{问题描述}
+形式如下：
+\begin{equation}\label{1}
+  \lim\limits_{x \to x_{0} } \frac{f(x)}{g(x)} = \lim\limits_{x \to x_{0}} \frac{f^{'}(x)}{g^{'}(x)}
+  \tag{1}
+\end{equation}
+\\
+通常有 $\frac{0}{0}$ 型，$\frac{\infty}{\infty}$ 型。
+\\
+对于其他不定式如 $0 \cdot \infty$, $1^{\infty}$, $0^{0}$ 等，
+通常可以经过简单变换，化为$\frac{0}{0}$型或$\frac{\infty}{\infty}$型。
+\\
+罗必达法则的使用条件：
+\begin{itemize}
+    \item [1)] 
+    极限满足 $ \frac{0}{0} $ 或 $ \frac{\infty}{\infty} $
+    \item [2)]
+    f(x),g(x)在 $ x_{0} $去心邻域内可导，且 $ g^{'}(x) \neq 0 $
+    \item [3)]
+    $ \lim\limits_{x \to x_{0}} \frac{f^{'}(x)}{g^{'}(x)} = a $, （a为有限实数或无穷大）
+\end{itemize}
+下面给出罗必达法则的证明。
+\section{证明}
+
+\subsection*{$\frac{0}{0}$型}
+假设
+\begin{equation}\label{2}
+  \lim\limits_{x \to x_{0}} f(x) = 0, \quad  \lim\limits_{x \to x_{0}} g(x) = 0 \tag{2}
+\end{equation}
+由\ref{2}及罗必达法则使用条件，我们有
+\begin{equation}\label{3}
+  f(x_{0})=0, \quad g(x_{0})=0 \tag{3}
+\end{equation}
+根据柯西中值定理，以及\ref{2}和\ref{3}，存在 $m \in (x_{0},x)  $，使得
+\begin{equation}\label{4}
+  \frac{f(x)}{g(x)} = \frac{f(x)-f(x_{0})}{g(x)-g(x_{0})} = \frac{f^{'}(m)}{g^{'}(m)} \tag{4}
+\end{equation}
+令 $ x \to x_{0} $，则 $ m \to x_{0} $，即有
+\begin{equation}\label{5}
+  \lim\limits_{x \to x_{0}} \frac{f(x)}{g(x)} = \lim\limits_{m \to x_{0}} \frac{f^{'}(m)}{g^{'}(m)} \tag{5}
+\end{equation}
+
+\subsection*{$\frac{\infty}{\infty}$型}
+此时
+\begin{equation}\label{6}
+  \lim\limits_{x \to x_{0}} f(x) = \infty, \quad \lim\limits_{x \to x_{0}} g(x) = \infty \tag{6}
+\end{equation}
+可得
+\begin{equation}\label{7}
+  \frac{f(x)}{g(x)} = \frac{\frac{1}{f(x)}}{\frac{1}{g(x)}} \to t, \quad x \to x_{0}. \quad t \neq 0   \tag{7}
+\end{equation}
+于是
+\begin{equation}\label{8}
+  \lim\limits_{x \to x_{0}} \frac{f(x)}{g(x)} =
+  \lim\limits_{x \to x_{0}} (\frac{\frac{1}{g^{2}(x)}}{\frac{1}{f^{2}(x)}})
+  (\frac{\frac{1}{f(x)}}{\frac{1}{g(x)}}) =
+  \frac{1}{t^2} \lim\limits_{x \to x_{0}} \frac{(\frac{1}{f(x)})^{'}}{(\frac{1}{g(x)})^{'}} =
+  \frac{1}{t^2} \lim\limits_{x \to x_{0}} t^2 \frac{f^{'}(x)}{g^{'}(x)}
+  \tag{8}
+\end{equation}
+
+\begin{equation}\label{9}
+  \lim\limits_{x \to x_{0}} \frac{f(x)}{g(x)} = \lim\limits_{x \to x_{0}} \frac{f^{'}(x)}{g^{'}(x)} \tag{9}
+\end{equation}
+
+证毕。
+
+\end{document}
