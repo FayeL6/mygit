@@ -1,0 +1,2 @@
+# mygit
+MathSoft homework
