@@ -1,0 +1,65 @@
+\documentclass{ctexart}
+
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{algorithm}  
+\usepackage{algpseudocode}  
+\usepackage{amsmath}
+\usepackage[backref]{hyperref}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\abstractname}{Abstract}
+\renewcommand{\refname}{Reference}
+
+\title{作业五：安装最新版本的gsl}
+
+\author{李方圆 \\ 统计学  3190104914}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+
+\section{功能概述}
+使用 \verb|brent| 法求解方程的根。（\verb|brent|方法为结合了二分法、割线法、逆二次插值法的一种求根方法）\\
+
+使用\verb|roots.c|，可以针对性求解一元二次方程的根。\\
+
+本例中，则求解了如下方程的根：
+\begin{equation}
+  x^{2}-5=0
+\end{equation}
+ 
+\section{部分运行框架与部分参数介绍}
+\subsection{运行框架}
+使用 \verb|demo_fn.h| 与 \verb|demo_fn.c| 自定义了一元二次函数的构造，并进行引用。\\
+
+除此之外，根据需要引用了 \verb|gsl| 中的库。
+
+\subsection{参数介绍}
+根据 \verb|demo_fn| 的规定，使用三个参数 \verb|a,b,c| 产生需要的一元二次方程
+\begin{equation}
+  (ax+b)x+c
+\end{equation}
+
+规定了最大迭代次数 \verb|max_iter|。\\
+
+\verb|T, s| 用来选择求根方法。\\
+
+\verb|r_expected| 为根的精确值，用来计算误差。\\
+
+\verb|x_lo, x_hi| 定义了定义域的上下界。
+
+\section{运行原理}
+
+使用 \verb|brent| 方法进行迭代求根，更新根、误差、根所在范围上下界，直到状态满足 \verb|GSL_SUCCELL| 中收敛的要求（若满足，输出Converged），或超过最大迭代次数，停止运行。
+
+
+
+
+
+\end{document}
